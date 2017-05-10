@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project( OCVproj )
+project( ocvproj )
 find_package( OpenCV REQUIRED )
-add_executable( OCVproj testocv.cc )
-target_link_libraries( OCVproj ${OpenCV_LIBS} )
+add_executable( ocvproj testocv.cc )
+target_link_libraries( ocvproj ${OpenCV_LIBS} )
