@@ -29,28 +29,14 @@ int main(int argc, char** argv ){
 			if ((dot && !strcmp(dot, ".jpg")) || (dot && !strcmp(dot, ".png"))){
 				string img_path = img_dir +"/" + dir->d_name;
 				if(images_displayed.insert(img_path).second){
-					cout << img_path << endl;
+					cout << dir->d_name << endl;
 					img = imread(img_path, CV_LOAD_IMAGE_COLOR);
-					cout << "showing " << dir->d_name << endl;
 					imshow("Current Frame", img);
-					waitKey(33);
+					waitKey(17);
 				}
 			}
 		}
 		closedir(d);
 	}
-	// while 1
-	// read images, if in set
-	/*
-	Mat gray_image;
-	cvtColor(image, gray_image, COLOR_BGR2GRAY);
-	imwrite("./hel.jpg", gray_image);
-	//cout << "original: " << image << endl << endl;
-	//cout << "gray: " << gray_image << endl << endl;
-	namedWindow("Org Image", WINDOW_NORMAL);
-
-	imshow("Gray Image", gray_image);
-	waitKey(0);
-	*/
 	return 0;
 }
