@@ -21,7 +21,7 @@ int main(int argc, char** argv ){
 	DIR *d;
 	struct dirent *dir;
 	Mat img;
-	namedWindow("Current Frame", WINDOW_NORMAL);
+	namedWindow("Current Frame", WINDOW_AUTOSIZE);
 	while(1){
 		d = opendir(img_dir.c_str());
 		while((dir = readdir(d)) != NULL){

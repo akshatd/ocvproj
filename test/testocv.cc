@@ -9,20 +9,15 @@ int main(int argc, char** argv ){
 	double start = (double)getTickCount();
 
 	Mat img = imread(argv[1], IMREAD_COLOR);
-	Mat mod;
-
-	Mat kernel = (Mat_<char>(3,3) << 0,-1,0,
-					-1,5,-1,
-					0,-1,0);
-
-	filter2D(img, mod, img.depth(), kernel);
-
+	Mat img2 = imread(argv[2], IMREAD_COLOR);
+	Mat out;
+	addWeighted(img, 0.5, img2, 0.5, 0.0, out);
 	double elapsed = ((double)getTickCount()-start)/getTickFrequency();
 	cout << "Time taken " << elapsed << endl;
 	namedWindow("Org Image", WINDOW_NORMAL);
 	namedWindow("Modified Image", WINDOW_NORMAL);
 	imshow("Org Image", img);
-	imshow("Modified Image", mod);
+	imshow("Modified Image", out);
 	waitKey(0);
 
 	return 0;
